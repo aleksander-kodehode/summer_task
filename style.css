@@ -1,0 +1,139 @@
+body {
+    background: #111;
+}
+.container {
+    max-width: 100%;
+    padding: 2.5%;
+}
+.container .cards {
+    display: flex;
+}
+.container .cards .cards_size {
+    height: 70vh;
+}
+#sukuna {
+    background: url(img/sukuna.jpg) no-repeat center;
+    background-size: cover;
+}
+#rengoku {
+    background: url(img/rengoku.jpg) no-repeat center;
+    background-size: cover;
+}
+#killua {
+    background: url(img/killua.png) no-repeat center;
+    background-size: cover;
+}
+.card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100%;
+}
+.card_frame {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+}
+.card_overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    bottom: 5%;
+    right: 1.5em;
+    width: 3.5em;
+    height: 3.5em;
+    background: rgba(17, 24, 39, .9);
+    border-radius: 50%;
+    transition: 0.5s;
+}
+.card_overlay::before {
+    content: "+";
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+}
+.card_overlay:hover, .card_overlay:focus {
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    opacity: 1;
+}
+/* Remove the read text on expansion */
+.card_overlay:hover::before, .card_overlay:focus::before {
+    content: none;
+}
+.card_content {
+    z-index: 1;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    box-sizing: border-box;
+    transition: 0s;
+    color: #b5bbc7;
+    pointer-events: none;
+}
+/* TABLE */
+table{
+    border-collapse: collapse;
+    width: 100%;
+    margin: 0 auto;
+    background-color: #4a4a4a;
+    color: #b5bbc7
+  }
+  th{
+    background-color: rgb(49, 49, 49);
+    color: #b5bbc7;
+  }
+  th, td {
+    border: 1px solid #232946;
+    padding: 0.15rem;
+    text-align: center;
+  }
+/* TYPOGRAPHY */
+h3.card_icon {
+    color: #b5bbc7;
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    text-align: center;
+    padding: 0.625rem 0;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+}
+.card_content h3 {
+    font-weight: 900;
+    margin-bottom: 2.5%;
+}
+.card_content p {
+    font-weight: 500;
+}
+/* animate */
+.card_overlay:hover + .card_content {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s 0.3s;
+}
+/* Responsiveness */
+@media (max-width: 750px) {
+    .cards {
+        flex-direction: column; 
+        justify-content: center;
+        align-items: center;   
+    }
+}
